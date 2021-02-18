@@ -35,7 +35,9 @@ Key options of this scrips:
     <td>1 or 0</td>
   </tr>
 </table>
-&nbsp&nbsp&nbsp&nbsp If input file not contain 'label_10' column, the evaluation of prediction results will be skipped.  <br/>
+&nbsp&nbsp&nbsp&nbsp If input file not contain 'label_10' column, the evaluation of prediction results will be skipped.  
+<br/>
+&nbsp
 
 - `outfile`: Prediction results (default=pred_result.csv)
       
