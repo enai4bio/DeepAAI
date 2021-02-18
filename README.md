@@ -21,7 +21,6 @@ python deep_aai_kmer_embedding_cls_evaluate.py --infile test_data.csv --outfile 
 Key options of this scrips:  
 - `infile`: CSV file to be predicted (default=test_data.csv).   
 
-<style> table th:first-of-type { width: 100px; } </style>
 <table>
   <tr>
     <td>virus_seq</td>
@@ -36,7 +35,7 @@ Key options of this scrips:
     <td>1 or 0</td>
   </tr>
 </table>
-&nbsp&nbsp&nbsp&nbsp If input file not contain 'label_10' column, the evaluation of prediction results will be skipped.
+&nbsp&nbsp&nbsp&nbsp If input file not contain 'label_10' column, the evaluation of prediction results will be skipped.  
 
 - `outfile`: Prediction results (default=pred_result.csv)
       
