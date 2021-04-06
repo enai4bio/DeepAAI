@@ -5,6 +5,8 @@ code for A Novel Deep Learning Framework for Predicting Antigen-Antibody Interac
 Architecture   
 ![](/docs/images/model_architecture.png)
 
+![](/docs/images/model_detail.png)
+
 Installation
 ```bash
 pip install -r requirements.txt
