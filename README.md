@@ -64,7 +64,7 @@ The most important files in this projects are as follow:
 ### Training
 Execute the following scripts to train antigen-antibody binding model.
 ```bash
-python baseline_trainer/deep_aai_kmer_embedding_cls_trainer.py --mode train
+python model_trainer/deep_aai_kmer_embedding_cls_trainer.py --mode train
 ```
 Hyper-parameter in DeepAAI: 
 | Parameter | Value | 
