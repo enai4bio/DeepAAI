@@ -9,7 +9,7 @@ For making DeepAAI available at no cost to the community, we have set a **[web s
 
 
 ### Architecture   
-![](/docs/images/2)
+![](/docs/images/2.png)
 
 ### Installation
 ```bash
