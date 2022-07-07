@@ -10,9 +10,7 @@ For making DeepAAI available at no cost to the community, we have set a **[web s
 
 
 ### Architecture   
-![](/docs/images/model_architecture.png)
-
-![](/docs/images/model_detail.png)
+![](/docs/images/2.pdf)
 
 ### Installation
 ```bash
