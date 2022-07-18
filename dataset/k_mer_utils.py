@@ -1,12 +1,6 @@
 #!/usr/bin/env
 # coding:utf-8
-"""
-Created on 2020/8/27 9:38
 
-base Info
-"""
-__author__ = 'xx'
-__version__ = '1.0'
 
 from sklearn.feature_extraction.text import CountVectorizer
 from dataset.feature_trans_content import amino_map_idx

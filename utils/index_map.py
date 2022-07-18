@@ -1,14 +1,6 @@
 #!/usr/bin/env
 # coding:utf-8
 
-"""
-Created on 2020/11/10 上午11:08
-
-base Info
-"""
-__author__ = 'xx'
-__version__ = '1.0'
-
 import numpy as np
 
 def get_pos_in_raw_arr(sub_arr, raw_arr):

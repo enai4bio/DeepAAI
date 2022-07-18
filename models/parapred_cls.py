@@ -1,14 +1,6 @@
 #!/usr/bin/env
 # coding:utf-8
 
-"""
-Created on 2021/1/25 下午8:29
-
-base Info
-"""
-__author__ = 'xx'
-__version__ = '1.0'
-
 import torch.nn.functional as F
 import torch.nn as nn
 import torch

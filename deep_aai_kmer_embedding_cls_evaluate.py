@@ -1,14 +1,6 @@
 #!/usr/bin/env
 # coding:utf-8
 
-"""
-Created on 2020/11/9 下午4:18
-
-base Info
-"""
-__author__ = 'xx'
-__version__ = '1.0'
-
 from argparse import ArgumentParser
 from dataset.abs_dataset_cls import AbsDataset
 from metrics.evaluate import evaluate_classification_paper

@@ -1,12 +1,6 @@
 #!/usr/bin/env
 # coding:utf-8
-"""
-Created on 2020/4/5 19:26
 
-base Info
-"""
-__author__ = 'xx'
-__version__ = '1.0'
 
 
 import numpy as np

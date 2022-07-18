@@ -1,14 +1,6 @@
 #!/usr/bin/env
 # coding:utf-8
 
-"""
-Created on 2020/9/10 上午10:08
-
-base Info
-"""
-__author__ = 'xx'
-__version__ = '1.0'
-
 from sklearn.svm import SVC
 from dataset.abs_dataset_cls import AbsDataset
 from metrics.evaluate import evaluate_classification_all
