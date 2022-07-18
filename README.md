@@ -69,8 +69,6 @@ Hyper-parameter in DeepAAI:
 | Dropout| 0.4 | 
 | Adj L1 loss | 5e-4 | 
 | Param L2 loss | 5e-4 |
-| CNN kernel | 7, 9, 11 |
-| CNN channel | 256 |
 | Amino embedding size | 7 |
 | Hidden size | 512 |
 | Learning rate | 5e-5 |
