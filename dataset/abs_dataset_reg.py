@@ -18,7 +18,7 @@ import sys
 
 current_path = osp.dirname(osp.realpath(__file__))
 corpus_dir = 'corpus/reg'
-processed_dir = 'processed_mat'
+processed_dir = 'corpus/processed_mat'
 
 amino_one_hot_ft_pad_dict, amino_physicochemical_ft_pad_dict, amino_map_idx = get_padding_ft_dict()
 
