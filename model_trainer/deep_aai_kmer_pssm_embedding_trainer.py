@@ -423,7 +423,7 @@ if __name__ == '__main__':
 
     param_dict = {
         'hot_data_split': [0.9, 0.05, 0.05],
-        'seed': 3,
+        'seed': 2,
         'kmer_min_df': 0.1,
         'label_type': 'label_10',
         'batch_size': 32,

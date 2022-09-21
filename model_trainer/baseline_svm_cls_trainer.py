@@ -98,7 +98,7 @@ class MLTrainer(object):
 
 
 if __name__ == '__main__':
-    for seed in [2, 3, 4]:
+    for seed in range(20):
         print('seed = ', seed)
         param_dict = {
             'hot_data_split': [0.9, 0.05, 0.05],
