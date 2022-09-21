@@ -258,7 +258,7 @@ class Trainer(object):
 if __name__ == '__main__':
     param_dict = {
         'hot_data_split': [0.9, 0.05, 0.05],
-        'seed': 2,
+        'seed': 0,
         'kmer_min_df': 0.1,
         'label_type': 'label_10',
         'batch_size': 32,
@@ -279,8 +279,48 @@ if __name__ == '__main__':
     parser.add_argument('--mode', type=str, default='evaluate', help='train or evaluate')
     args = parser.parse_args()
     assert args.mode in ['train', 'evaluate']
-    trainer = Trainer(**param_dict)
     if args.mode == 'train':
+        for seed in range(20):
+            print('seed = ', seed)
+            param_dict = {
+                'hot_data_split': [0.9, 0.05, 0.05],
+                'seed': 0,
+                'kmer_min_df': 0.1,
+                'label_type': 'label_10',
+                'batch_size': 32,
+                'epoch_num': 200,
+                'h_dim': 512,
+                'dropout_num': 0.4,
+                'lr': 5e-5,
+                'amino_embedding_dim': 7,
+                'adj_loss_coef': 5e-4,
+                'param_l2_coef': 5e-4,
+                'add_res': True,
+                'add_bn': False,
+                'max_antibody_len': 344,
+                'max_virus_len': 912,
+            }
+        trainer = Trainer(**param_dict)
         trainer.start()
     else:
+        for seed in range(20):
+            param_dict = {
+                'hot_data_split': [0.9, 0.05, 0.05],
+                'seed': 0,
+                'kmer_min_df': 0.1,
+                'label_type': 'label_10',
+                'batch_size': 32,
+                'epoch_num': 200,
+                'h_dim': 512,
+                'dropout_num': 0.4,
+                'lr': 5e-5,
+                'amino_embedding_dim': 7,
+                'adj_loss_coef': 5e-4,
+                'param_l2_coef': 5e-4,
+                'add_res': True,
+                'add_bn': False,
+                'max_antibody_len': 344,
+                'max_virus_len': 912,
+            }
+        trainer = Trainer(**param_dict)
         trainer.evaluate_model()

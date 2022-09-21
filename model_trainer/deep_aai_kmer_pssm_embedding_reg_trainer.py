@@ -216,25 +216,26 @@ class Trainer(object):
 
 
 if __name__ == '__main__':
+    for seed in range(20):
+        print('seed = ', seed)
+        param_dict = {
+            'hot_data_split': [0.9, 0.05, 0.05],
+            'kmer_min_df': 0.1,
+            'seed': 2,
+            'batch_size': 32,
+            'epoch_num': 200,
+            'h_dim': 512,
+            'dropout_num': 0.1,
+            'lr': 1e-4,
+            'amino_embedding_dim': 7,
+            'adj_loss_coef': 5e-4,
+            'param_l1_coef': 0,
+            'param_l2_coef': 5e-4,
+            'add_res': True,
+            'add_bn': False,
+            'max_antibody_len': 344,
+            'max_virus_len': 912,
 
-    param_dict = {
-        'hot_data_split': [0.9, 0.05, 0.05],
-        'kmer_min_df': 0.1,
-        'seed': 2,
-        'batch_size': 32,
-        'epoch_num': 200,
-        'h_dim': 512,
-        'dropout_num': 0.1,
-        'lr': 1e-4,
-        'amino_embedding_dim': 7,
-        'adj_loss_coef': 5e-4,
-        'param_l1_coef': 0,
-        'param_l2_coef': 5e-4,
-        'add_res': True,
-        'add_bn': False,
-        'max_antibody_len': 344,
-        'max_virus_len': 912,
-
-    }
-    trainer = Trainer(**param_dict)
-    trainer.start()
+        }
+        trainer = Trainer(**param_dict)
+        trainer.start()
