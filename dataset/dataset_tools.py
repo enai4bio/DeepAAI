@@ -1,12 +1,5 @@
 #!/usr/bin/env
 # coding:utf-8
-"""
-Created on 2020/8/21 16:31
-
-base Info
-"""
-__author__ = 'xx'
-__version__ = '1.0'
 
 import numpy as np
 from dataset.feature_trans_content import amino_physicochemical_ft, amino_map_idx

@@ -1,13 +1,6 @@
 #!/usr/bin/env
 # coding:utf-8
 
-"""
-Created on 2020/11/30 下午5:19
-
-base Info
-"""
-__author__ = 'xx'
-__version__ = '1.0'
 import torch
 import numpy as np
 from torch.utils.data import Dataset, DataLoader

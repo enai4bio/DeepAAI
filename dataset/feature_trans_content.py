@@ -1,12 +1,5 @@
 #!/usr/bin/env
 # coding:utf-8
-"""
-Created on 2020/8/21 14:45
-
-base Info
-"""
-__author__ = 'xx'
-__version__ = '1.0'
 
 amino_map_idx = {
     "A": 0,
