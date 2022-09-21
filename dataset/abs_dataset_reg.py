@@ -28,7 +28,6 @@ class AbsDataset():
                  train_split_param=[0.9, 0.05, 0.05],
                  reprocess=False,
                  kmer_min_df=0.1,
-                 label_type='label_10'
                  ):
         assert label_type in ['label_10', 'label_50']
         self.dataset_name = __file__.split('/')[-1].replace('.py', '')

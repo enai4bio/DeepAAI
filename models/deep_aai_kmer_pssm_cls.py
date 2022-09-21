@@ -11,34 +11,35 @@ import torch.nn as nn
 from models.layers.gcn_conv_input_mat import GCNConv
 
 
-class BasicBlock1D(nn.Module):
-    def __init__(self, in_channel, out_channel, kernel_size, padding, stride, add_bn=True, add_res=False, dilation=1):
-        super(BasicBlock1D, self).__init__()
-        self.add_bn = add_bn
-        self.add_res = add_res
-        self.in_channel = in_channel
-        self.out_channel = out_channel
-        self.conv = nn.Conv1d(in_channel, out_channel, kernel_size=kernel_size, padding=padding, stride=stride, dilation=dilation)
-        if self.add_bn:
-            self.bn = nn.BatchNorm1d(out_channel)
-        if (kernel_size - 1) * dilation // 2 != padding or stride != 1:
-            exit('input dim != out dim')
+class CNNmodule(nn.Module):
+    def __init__(self, in_channel, kernel_width, l=0):
+        super(CNNmodule, self).__init__()
+        self.kernel_width = kernel_width
+        self.conv = nn.Conv1d(in_channels=in_channel, out_channels=64, kernel_size=2, stride=1, padding=1)
+        self.pool = nn.MaxPool1d(kernel_size=2, stride=1)
+        self.out_linear = nn.Linear(l*64, 512)
+        self.dropout = nn.Dropout(0.5)
 
-    def forward(self, x):
-        if self.add_res:
-            residual = x
-        out = self.conv(x)
-        out = F.relu(out)
-        if self.add_bn:
-            out = self.bn(out)
-        if self.add_res and self.in_channel == self.out_channel:
-            out += residual
-        return out
+
+    def forward(self, protein_ft):
+        '''
+        :param protein_ft: batch*len*amino_dim
+        :return:
+        '''
+        batch_size = protein_ft.size()[0]
+        protein_ft = protein_ft.transpose(1, 2)
+
+        conv_ft = self.conv(protein_ft)
+        conv_ft = self.dropout(conv_ft)
+        conv_ft = self.pool(conv_ft).view(batch_size, -1)
+        conv_ft = self.out_linear(conv_ft)
+        return conv_ft
 
 
 class DeepAAIKmerPssmCls(nn.Module):
     def __init__(self, **param_dict):
         super(DeepAAIKmerPssmCls, self).__init__()
+        self.amino_ft_dim = param_dict['amino_type_num'],
         self.param_dict = param_dict
         self.kmer_dim = param_dict['kmer_dim']
         self.h_dim = param_dict['h_dim']
@@ -56,7 +57,7 @@ class DeepAAIKmerPssmCls(nn.Module):
         self.antibody_pssm_linear = nn.Linear(param_dict['pssm_antibody_dim'], self.h_dim)
         self.virus_pssm_linear = nn.Linear(param_dict['pssm_virus_dim'], self.h_dim)
 
-        self.share_linear = nn.Linear(self.h_dim * 2, self.h_dim)
+        self.share_linear = nn.Linear(self.h_dim, self.h_dim)
         self.share_gcn1 = GCNConv(self.h_dim, self.h_dim)
         self.share_gcn2 = GCNConv(self.h_dim, self.h_dim)
 
@@ -67,12 +68,24 @@ class DeepAAIKmerPssmCls(nn.Module):
             torch.ones(1)
         )
 
+        self.amino_embedding_layer = nn.Embedding(param_dict['amino_type_num'], self.amino_embedding_dim)
+        self.channel_cfg.insert(0, self.amino_embedding_dim)
+        self.local_linear = nn.Linear(self.channel_cfg[-1] * 2, self.h_dim)
         self.global_linear = nn.Linear(self.h_dim * 2, self.h_dim)
         self.pred_linear = nn.Linear(self.h_dim, 1)
 
         self.activation = nn.ELU()
         for m in self.modules():
             self.weights_init(m)
+            
+        self.max_antibody_len = param_dict['max_antibody_len']
+        self.max_virus_len =  param_dict['max_virus_len']
+            
+        self.cnnmodule = CNNmodule(in_channel=22, kernel_width=self.amino_ft_dim, l=self.max_antibody_len)
+        self.cnnmodule2 = CNNmodule(in_channel=22, kernel_width=self.amino_ft_dim, l=self.max_virus_len)
+
+        self.out_linear1 = nn.Linear(1024, 512)
+        self.out_linear2 = nn.Linear(512, 512)
 
     def weights_init(self, m):
         if isinstance(m, nn.Linear):
