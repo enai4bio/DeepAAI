@@ -1,5 +1,8 @@
 #!/usr/bin/env
 # coding:utf-8
+import sys
+import os
+sys.path.append(os.getcwd())
 
 from sklearn.svm import SVC
 from dataset.abs_dataset_cls import AbsDataset

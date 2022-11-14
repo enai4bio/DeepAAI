@@ -64,9 +64,9 @@ class DeepAAIKmerPssmReg(nn.Module):
             torch.ones(1)
         )
 
-        self.amino_embedding_layer = nn.Embedding(param_dict['amino_type_num'], self.amino_embedding_dim)
-        self.channel_cfg.insert(0, self.amino_embedding_dim)
-        self.local_linear = nn.Linear(self.channel_cfg[-1] * 2, self.h_dim)
+        # self.amino_embedding_layer = nn.Embedding(param_dict['amino_type_num'], self.amino_embedding_dim)
+        # self.channel_cfg.insert(0, self.amino_embedding_dim)
+        # self.local_linear = nn.Linear(self.channel_cfg[-1] * 2, self.h_dim)
         self.global_linear = nn.Linear(self.h_dim * 2, self.h_dim)
         self.pred_linear = nn.Linear(self.h_dim, 1)
 
@@ -80,8 +80,8 @@ class DeepAAIKmerPssmReg(nn.Module):
         self.cnnmodule = CNNmodule(in_channel=22, kernel_width=self.amino_ft_dim, l=self.max_antibody_len)
         self.cnnmodule2 = CNNmodule(in_channel=22, kernel_width=self.amino_ft_dim, l=self.max_virus_len)
 
-        self.out_linear1 = nn.Linear(1024, 512)
-        self.out_linear2 = nn.Linear(512, 512)
+        self.local_linear1 = nn.Linear(1024, 512)
+        self.local_linear2 = nn.Linear(512, 512)
 
     def weights_init(self, m):
         if isinstance(m, nn.Linear):

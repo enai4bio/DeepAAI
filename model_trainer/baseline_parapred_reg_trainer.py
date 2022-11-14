@@ -1,5 +1,8 @@
 #!/usr/bin/env
 # coding:utf-8
+import sys
+import os
+sys.path.append(os.getcwd())
 
 import torch.nn as nn
 import torch.nn.functional as F

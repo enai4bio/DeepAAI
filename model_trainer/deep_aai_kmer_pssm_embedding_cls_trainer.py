@@ -1,5 +1,8 @@
 #!/usr/bin/env
 # coding:utf-8
+import sys
+import os
+sys.path.append(os.getcwd())
 
 import torch.nn.functional as F
 import torch.nn as nn
@@ -82,8 +85,8 @@ class Trainer(object):
             batch_label = self.dataset.all_label_mat[shuffled_batch_idx]
             batch_tensor_label = torch.FloatTensor(batch_label).to(self.device)
 
-            batch_antibody_amino_ft = self.dataset.protein_ft_dict['antibody_amino_num'][batch_antibody_idx]
-            batch_virus_amino_ft = self.dataset.protein_ft_dict['virus_amino_num'][batch_virus_idx]
+            batch_antibody_amino_ft = self.dataset.protein_ft_dict['antibody_one_hot'][batch_antibody_idx]
+            batch_virus_amino_ft = self.dataset.protein_ft_dict['virus_one_hot'][batch_virus_idx]
 
             # index_remap:  raw_index -> graph_index
             # batch_antibody_idx -> batch_antibody_node_idx_in_graph

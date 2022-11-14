@@ -1,5 +1,8 @@
 #!/usr/bin/env
 # coding:utf-8
+import sys
+import os
+sys.path.append(os.getcwd())
 
 from argparse import ArgumentParser
 import torch.nn.functional as F
@@ -81,8 +84,8 @@ class Trainer(object):
             batch_label = self.dataset.all_label_mat[shuffled_batch_idx]
             batch_tensor_label = torch.FloatTensor(batch_label).to(self.device)
 
-            batch_antibody_amino_ft = self.dataset.protein_ft_dict['antibody_amino_num'][batch_antibody_idx]
-            batch_virus_amino_ft = self.dataset.protein_ft_dict['virus_amino_num'][batch_virus_idx]
+            batch_antibody_amino_ft = self.dataset.protein_ft_dict['antibody_one_hot'][batch_antibody_idx]
+            batch_virus_amino_ft = self.dataset.protein_ft_dict['virus_one_hot'][batch_virus_idx]
 
             # index_remap:  raw_index -> graph_index
             # batch_antibody_idx -> batch_antibody_node_idx_in_graph
@@ -154,7 +157,7 @@ class Trainer(object):
                     )
         print(msg_log)
 
-    def start(self, display=True):
+    def train(self, display=True):
 
         for epoch in range(1, self.param_dict['epoch_num'] + 1):
             # train
@@ -263,8 +266,8 @@ if __name__ == '__main__':
                 'max_virus_len': 912,
 
             }
-        trainer = Trainer(**param_dict)
-        trainer.start()
+            trainer = Trainer(**param_dict)
+            trainer.train()
     else:
         for seed in range(20):
             print('seed = ', seed)
@@ -287,5 +290,5 @@ if __name__ == '__main__':
                 'max_virus_len': 912,
 
             }
-        trainer = Trainer(**param_dict)
-        trainer.evaluate_model()
+            trainer = Trainer(**param_dict)
+            trainer.evaluate_model()
