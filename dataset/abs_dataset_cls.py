@@ -58,7 +58,6 @@ class AbsDataset():
         self.test_seen_index = None
         self.test_unseen_index = np.load(osp.join(current_path, corpus_dir, 'test_unseen_index.npy'))
 
-        self.load_file()
 
         # load existing processed file
         print('loading ', self.protein_ft_save_path)
