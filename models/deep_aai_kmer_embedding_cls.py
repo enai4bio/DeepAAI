@@ -42,7 +42,7 @@ class DeepAAIKmerEmbeddingCls(nn.Module):
         self.dropout = param_dict['dropout_num']
         self.add_bn = param_dict['add_bn']
         self.add_res = param_dict['add_res']
-        # self.amino_embedding_dim = param_dict['amino_embedding_dim']
+        self.amino_embedding_dim = param_dict['amino_embedding_dim']
         # self.kernel_cfg = param_dict['kernel_cfg']
         # self.channel_cfg = param_dict['channel_cfg']
         # self.dilation_cfg = param_dict['dilation_cfg']
