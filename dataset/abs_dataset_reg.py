@@ -29,7 +29,6 @@ class AbsDataset():
                  reprocess=False,
                  kmer_min_df=0.1,
                  ):
-        assert label_type in ['label_10', 'label_50']
         self.dataset_name = __file__.split('/')[-1].replace('.py', '')
         self.dataset_param_str = '{}_antibody={}_virus={}_kmer_min_df={}'.format(
             self.dataset_name, max_antibody_len, max_virus_len, kmer_min_df)

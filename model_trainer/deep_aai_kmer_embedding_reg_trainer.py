@@ -27,7 +27,6 @@ class Trainer(object):
                                   max_virus_len=self.param_dict['max_virus_len'],
                                   train_split_param=self.param_dict['hot_data_split'],
                                   kmer_min_df=self.param_dict['kmer_min_df'],
-                                  label_norm=True,
                                   reprocess=False)
         self.param_dict.update(self.dataset.dataset_info)
 
