@@ -70,9 +70,9 @@ class Trainer(object):
         virus_graph_node_ft = self.dataset.protein_ft_dict['virus_kmer_whole'][virus_graph_node_idx]
 
         antibody_graph_map_arr = get_map_index_for_sub_arr(
-            antibody_graph_node_idx, np.arange(0, len(self.dataset.raw_all_antibody_set)))
+            antibody_graph_node_idx, np.arange(0, 254))
         virus_graph_map_arr = get_map_index_for_sub_arr(
-            virus_graph_node_idx, np.arange(0, len(self.dataset.raw_all_virus_set)))
+            virus_graph_node_idx, np.arange(0, 940))
 
         for i in range(math.ceil(pair_num/self.param_dict['batch_size'])):
             right_bound = min((i + 1)*self.param_dict['batch_size'], pair_num + 1)
