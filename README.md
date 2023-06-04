@@ -99,7 +99,7 @@ Execute the following scripts to process the SARS-CoV-2 dataset.
 python processing/cov_cls/processing.py
 ```
 
-For  details of data collection and features, please see the in **Data** and **Feature** of the **Method** section in Page 9 ~ 10 of the [manuscript](https://www.nature.com/articles/s42256-022-00553-w#ethics)
+For  details of data collection and features, please see the in **Data** and **Feature** of the **Method** section in Page 9 ~ 10 of the manuscript.
 
 Hyper-parameter in DeepAAI: 
 | Parameter | Value | 
