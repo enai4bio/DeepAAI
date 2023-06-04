@@ -14,7 +14,7 @@ pip install -r requirements.txt
 ```
 
 ### Training
-Before training, all the files (```*.7z```) in the ```dataset/corpus/processed_mat``` need to be decompressed.
+Before training, all the files (```*.7z```) in the ```dataset/corpus/processed_mat/``` need to be decompressed.
 
 Execute the following scripts to train antigen-antibody neutralization model on the HIV dataset.
 ```bash
@@ -26,7 +26,7 @@ Execute the following scripts to train antigen-antibody neutralization model on 
 python model_trainer/deep_aai_kmer_embedding_cov_cls_trainer.py --mode train
 ```
 
-### Processing dataset
+### Preprocessing dataset
 Execute the following scripts to process the HIV dataset.
 ```bash
 python processing/hiv_cls/processing.py
