@@ -73,9 +73,6 @@ python model_trainer/baseline_parapred_reg_trainer.py --mode train
 ```
 
 
-
-
-
 ### Preprocessing dataset
 The data pre-processing module is in the folder of ```processing/```. There are three sub-folders in the processing folder, ```hiv_cls```, ```hiv_reg```, and ```cov_cls```.
 
@@ -85,6 +82,8 @@ The data pre-processing module is in the folder of ```processing/```. There are 
 
 - ```cov_cls``` includes the scripts and the source data that generate the dataset for SARS-CoV2 classification. The source file is ```dataset_cov_cls.xlsx```, which contains four fields ```antibody_seq```, ```virus_seq```, ```label```, and ```split```. ```processing/cov_cls/corpus/cov_cls``` contains data indices. The generated  dataset for HIV regression will be under ```processing/cov_cls/corpus/processed_mat```. 
 
+Noted that for each SARS-CoV-2 variant (SARS-CoV2_WT, SARS-CoV2_Alpha, SARS-CoV2_Beta, SARS-CoV2_Gamma, SARS-CoV2_Delta), five sequences were sampled, respectively. The unseen test includes SARS-CoV2_Omicron.
+
 Under ```processing/hiv_cls/```, ```processing/hiv_reg/```, and ```processing/cov_cls/```, there are ```processing.py```s. Lines 62-82 in each ```processing.py``` correspond to how to convert the sequence into kmer, one-hot, pssm, etc.
 
 - Lines 62-66: one-hot
@@ -93,7 +92,6 @@ Under ```processing/hiv_cls/```, ```processing/hiv_reg/```, and ```processing/co
 - Lines 77-82: k-mer-whole
 
 The pssm needs to be obtained from the POSSUM ([Wang, J. et al. Possum: a bioinformatics toolkit for generating numerical sequence feature descriptors based on pssm profiles. Bioinformatics 33, 2756–2758 2017](https://academic.oup.com/bioinformatics/article/33/17/2756/3813283)) and placed in the pssm folder. We select the Uniref50 database to generate PSSMs. 
-
 
 Execute the following scripts to process the HIV dataset for classification.
 ```bash
@@ -110,8 +108,7 @@ Execute the following scripts to process the SARS-CoV-2 dataset.
 python processing/cov_cls/processing.py
 ```
 
-For  details of data collection and features, please see the in **Data** and **Feature** of the **Method** section in Page 9 ~ 10 of the manuscript.
-
+There is no additional criteria for filtering the data of the other datasets. For more details of data collection and features, please see the in the subsections of **Data** and **Feature** of the **Method** section in Page 9 ~ 10 of the manuscript.
 
 
 
