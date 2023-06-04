@@ -81,7 +81,7 @@ Under ```processing/hiv_cls/```, ```processing/hiv_reg/```, and ```processing/co
 - Lines 71-75: amino_num
 - Lines 77-82: k-mer-whole
 
-The pssm needs to be obtained from the POSSUM ([Wang, J. et al. Possum: a bioinformatics toolkit for generating numerical sequence feature descriptors based on pssm profiles. Bioinformatics 33, 2756–2758 2017][https://academic.oup.com/bioinformatics/article/33/17/2756/3813283]) and placed in the pssm folder. We select the Uniref50 database to generate PSSMs. 
+The pssm needs to be obtained from the POSSUM ([Wang, J. et al. Possum: a bioinformatics toolkit for generating numerical sequence feature descriptors based on pssm profiles. Bioinformatics 33, 2756–2758 2017](https://academic.oup.com/bioinformatics/article/33/17/2756/3813283)) and placed in the pssm folder. We select the Uniref50 database to generate PSSMs. 
 
 
 Execute the following scripts to process the HIV dataset for classification.
