@@ -210,33 +210,7 @@ class Trainer(object):
 
 
     def evaluate_model(self):
-        # load param
-        model_file_path = osp.join(current_path, '..', 'save_model_param_pred',
-                                   'deep_aai_k+e', 'deep_aai_kmer_embedding_reg_seed={}_param.pkl'.format(self.param_dict['seed']))
-        self.model.load_state_dict(torch.load(model_file_path))
-        print('load_param ', model_file_path)
-
-        seen_test_mse, seen_test_mae, seen_test_mape, seen_test_r2, seen_test_pccs_rho, seen_test_spear_rho = \
-            self.iteration(0, self.dataset.test_seen_index,
-                           antibody_graph_node_idx=self.dataset.known_antibody_idx,
-                           virus_graph_node_idx=self.dataset.known_virus_idx,
-                           is_training=False, shuffle=False)
-
-        unseen_test_mse, unseen_test_mae, unseen_test_mape, unseen_test_r2, unseen_test_pccs_rho, unseen_test_spear_rho = \
-            self.iteration(0, self.dataset.test_unseen_index,
-                           antibody_graph_node_idx=np.hstack(
-                               (self.dataset.known_antibody_idx, self.dataset.unknown_antibody_idx)),
-                           virus_graph_node_idx=self.dataset.known_virus_idx,
-                           is_training=False, shuffle=False)
-
-        log_str = \
-            'Evaluate Result:  MSE      \tMAE    \tPearson\tSpearman  \n' \
-            'Seen Test:        {:.5f}\t{:.5f}\t{:.5f}\t{:.5f} \n'  \
-            'Unseen Test:      {:.5f}\t{:.5f}\t{:.5f}\t{:.5f} '.format(
-            seen_test_mse, seen_test_mae, seen_test_pccs_rho, seen_test_spear_rho,
-            unseen_test_mse, unseen_test_mae, unseen_test_pccs_rho, unseen_test_spear_rho,
-            )
-        print(log_str)
+        pass
 
 if __name__ == '__main__':
     parser = ArgumentParser(description="Train model")

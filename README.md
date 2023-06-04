@@ -17,22 +17,28 @@ pip install -r requirements.txt
 ```
 
 
-      
-
-### Descriptions  
-The most important files in this projects are as follow:
-- dataset: 
-  - `abs_dataset_cls.py`: The object for load the HIV classification data set. 
-  - `k_mer_utils.py`: Create K-mer feature. 
-- baseline_trainer: Train scrips for DeepAAI and some baselines. 
-- models: Implementation of DeepAAI and all baselines.
-
-
 ### Training
-Execute the following scripts to train antigen-antibody binding model.
+Execute the following scripts to train antigen-antibody neutralization model on the HIV dataset.
 ```bash
 python model_trainer/deep_aai_kmer_embedding_cls_trainer.py --mode train
 ```
+
+Execute the following scripts to train antigen-antibody neutralization model on the SARS-CoV-2 dataset.
+```bash
+python model_trainer/deep_aai_kmer_embedding_cov_cls_trainer.py --mode train
+```
+
+### Processing dataset
+Execute the following scripts to process the HIV dataset.
+```bash
+python processing/hiv_cls/processing.py
+```
+
+Execute the following scripts to process the SARS-CoV-2 dataset.
+```bash
+python processing/cov_cls/processing.py
+```
+
 Hyper-parameter in DeepAAI: 
 | Parameter | Value | 
 | ----  | ----  |

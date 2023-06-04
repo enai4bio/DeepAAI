@@ -50,8 +50,8 @@ class DeepAAIKmerEmbeddingCls(nn.Module):
         self.antibody_kmer_linear = nn.Linear(param_dict['kmer_dim'], self.h_dim)
         self.virus_kmer_linear = nn.Linear(param_dict['kmer_dim'], self.h_dim)
 
-        self.antibody_pssm_linear = nn.Linear(param_dict['pssm_antibody_dim'], self.h_dim)
-        self.virus_pssm_linear = nn.Linear(param_dict['pssm_virus_dim'], self.h_dim)
+#         self.antibody_pssm_linear = nn.Linear(param_dict['pssm_antibody_dim'], self.h_dim)
+#         self.virus_pssm_linear = nn.Linear(param_dict['pssm_virus_dim'], self.h_dim)
 
         self.share_linear = nn.Linear(self.h_dim, self.h_dim)
         self.share_gcn1 = GCNConv(self.h_dim, self.h_dim)
