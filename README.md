@@ -41,6 +41,17 @@ Execute the following scripts to train antigen-antibody neutralization model on 
 python model_trainer/deep_aai_kmer_embedding_cov_cls_trainer.py --mode train
 ```
 
+Hyper-parameter in DeepAAI: 
+| Parameter | Value | 
+| ----  | ----  |
+| Dropout| 0.4 | 
+| Adj L1 loss | 5e-4 | 
+| Param L2 loss | 5e-4 |
+| Amino embedding size | 7 |
+| Hidden size | 512 |
+| Learning rate | 5e-5 |
+
+
 Execute the following scripts to train antigen-antibody neutralization model by AG-Fast-Parapred on the HIV dataset.
 ```bash
 python model_trainer/baseline_ag_fast_parapred_cls_trainer.py --mode train
@@ -101,15 +112,6 @@ python processing/cov_cls/processing.py
 
 For  details of data collection and features, please see the in **Data** and **Feature** of the **Method** section in Page 9 ~ 10 of the manuscript.
 
-Hyper-parameter in DeepAAI: 
-| Parameter | Value | 
-| ----  | ----  |
-| Dropout| 0.4 | 
-| Adj L1 loss | 5e-4 | 
-| Param L2 loss | 5e-4 |
-| Amino embedding size | 7 |
-| Hidden size | 512 |
-| Learning rate | 5e-5 |
 
 
 
