@@ -74,13 +74,13 @@ python model_trainer/baseline_parapred_reg_trainer.py --mode train
 
 
 ### Preprocessing dataset
-The data pre-processing module is in the folder of ```processing/```. There are three sub-folders in the processing folder, ```hiv_cls```, ```hiv_reg```, and ```cov_cls```.
+The data pre-processing module is in the folder of ```processing/```. There are three sub-folders in the processing folder, ```hiv_cls```, ```hiv_reg```, and ```cov_cls```. The pre-processing can be understood by following the scripts of processing.py as well as the *.py under processing/hiv_cls/, processing/hiv_reg/, and processing/cov_cls/.
 
-- ```hiv_cls``` includes the scripts and the source data that generate the dataset for HIV classification. The source file is ```dataset_hiv_cls.xlsx```, which contains four fields ```antibody_seq```, ```virus_seq```, ```label```, and ```split```. ```processing/hiv_cls/corpus/cls``` contains data indices. The generated  dataset for HIV classification will be under ```processing/hiv_cls/corpus/processed_mat```. 
+- ```processing/hiv_cls/``` includes the scripts and the source data that generate the dataset for HIV classification. The source file is ```dataset_hiv_cls.xlsx```, which contains four fields ```antibody_seq```, ```virus_seq```, ```label```, and ```split```. ```processing/hiv_cls/corpus/cls``` contains data indices. The generated dataset for HIV classification will be under ```processing/hiv_cls/corpus/processed_mat```. 
 
-- ```hiv_reg``` includes the scripts and the source data that generate the dataset for HIV regression. The source file is ```dataset_hiv_reg.xlsx```, which contains four fields ```antibody_seq```, ```virus_seq```, ```label```, and ```split```. ```processing/hiv_cls/corpus/cov_cls``` contains data indices. The generated dataset for HIV regression will be under ```processing/hiv_reg/corpus/processed_mat```. 
+- ```processing/hiv_reg/``` includes the scripts and the source data that generate the dataset for HIV regression. The source file is ```dataset_hiv_reg.xlsx```, which contains four fields ```antibody_seq```, ```virus_seq```, ```label```, and ```split```. ```processing/hiv_cls/corpus/cov_cls``` contains data indices. The generated dataset for HIV regression will be under ```processing/hiv_reg/corpus/processed_mat```. 
 
-- ```cov_cls``` includes the scripts and the source data that generate the dataset for SARS-CoV2 classification. The source file is ```dataset_cov_cls.xlsx```, which contains four fields ```antibody_seq```, ```virus_seq```, ```label```, and ```split```. ```processing/cov_cls/corpus/cov_cls``` contains data indices. The generated  dataset for HIV regression will be under ```processing/cov_cls/corpus/processed_mat```. 
+- ```processing/cov_cls/``` includes the scripts and the source data that generate the dataset for SARS-CoV2 classification. The source file is ```dataset_cov_cls.xlsx```, which contains four fields ```antibody_seq```, ```virus_seq```, ```label```, and ```split```. ```processing/cov_cls/corpus/cov_cls``` contains data indices. The generated dataset for SARS-CoV2 will be under ```processing/cov_cls/corpus/processed_mat```. 
 
 Noted that for each SARS-CoV-2 variant (SARS-CoV2_WT, SARS-CoV2_Alpha, SARS-CoV2_Beta, SARS-CoV2_Gamma, SARS-CoV2_Delta), five sequences were sampled, respectively. The unseen test includes SARS-CoV2_Omicron.
 
