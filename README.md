@@ -21,10 +21,39 @@ Execute the following scripts to train antigen-antibody neutralization model on 
 python model_trainer/deep_aai_kmer_embedding_cls_trainer.py --mode train
 ```
 
+Execute the following scripts to train antigen-antibody IC50 prediction model on the HIV dataset.
+```bash
+python model_trainer/deep_aai_kmer_embedding_reg_trainer.py --mode train
+```
+
 Execute the following scripts to train antigen-antibody neutralization model on the SARS-CoV-2 dataset.
 ```bash
 python model_trainer/deep_aai_kmer_embedding_cov_cls_trainer.py --mode train
 ```
+
+Execute the following scripts to train antigen-antibody neutralization model by AG-Fast-Parapred on the HIV dataset.
+```bash
+python model_trainer/baseline_ag_fast_parapred_cls_trainer.py --mode train
+```
+
+Execute the following scripts to train antigen-antibody IC50 prediction model by AG-Fast-Parapred on the HIV dataset.
+```bash
+python model_trainer/baseline_ag_fast_parapred_reg_trainer.py --mode train
+```
+
+Execute the following scripts to train antigen-antibody neutralization model by Parapred on the HIV dataset.
+```bash
+python model_trainer/baseline_parapred_cls_trainer.py --mode train
+```
+
+Execute the following scripts to train antigen-antibody IC50 prediction model by Parapred on the HIV dataset.
+```bash
+python model_trainer/baseline_parapred_reg_trainer.py --mode train
+```
+
+
+
+
 
 ### Preprocessing dataset
 Execute the following scripts to process the HIV dataset.
