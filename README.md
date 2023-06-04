@@ -72,14 +72,17 @@ The data pre-processing module is in the folder of ```processing/```. There are 
 
 - ```hiv_reg``` includes the scripts and the source data that generate the dataset for HIV regression. The source file is ```dataset_hiv_reg.xlsx```, which contains four fields ```antibody_seq```, ```virus_seq```, ```label```, and ```split```. ```processing/hiv_cls/corpus/cov_cls``` contains data indices. The generated dataset for HIV regression will be under ```processing/hiv_reg/corpus/processed_mat```. 
 
-- ```hiv_cov``` includes the scripts and the source data that generate the dataset for SARS-CoV2 classification. The source file is ```dataset_cov_cls.xlsx```, which contains four fields ```antibody_seq```, ```virus_seq```, ```label```, and ```split```. ```processing/hiv_cls/corpus/cov_cls``` contains data indices. The generated  dataset for HIV regression will be under ```processing/cov_cls/corpus/processed_mat```. 
+- ```cov_cls``` includes the scripts and the source data that generate the dataset for SARS-CoV2 classification. The source file is ```dataset_cov_cls.xlsx```, which contains four fields ```antibody_seq```, ```virus_seq```, ```label```, and ```split```. ```processing/cov_cls/corpus/cov_cls``` contains data indices. The generated  dataset for HIV regression will be under ```processing/cov_cls/corpus/processed_mat```. 
 
-Under ```processing/hiv_cls/```, ```processing/hiv_reg/```, and ```processing/cov_cls/```, there are ```processing.py```s. Lines 62-82 in each ```processing.py``` correspond to how to convert the sequence into kmer, one-hot, pssm, etc., where pssm needs to be obtained from the POSSUM website and placed in the pssm folder. 
+Under ```processing/hiv_cls/```, ```processing/hiv_reg/```, and ```processing/cov_cls/```, there are ```processing.py```s. Lines 62-82 in each ```processing.py``` correspond to how to convert the sequence into kmer, one-hot, pssm, etc.
 
 - Lines 62-66: one-hot
 - Lines 68-69: pssm
 - Lines 71-75: amino_num
 - Lines 77-82: k-mer-whole
+
+The pssm needs to be obtained from the POSSUM website and placed in the pssm folder. We select the Uniref50 database with the tool of the position-specific scoring matrix-based feature generator for machine learning (POSSUM)(Wang, J. et al. Possum: a bioinformatics toolkit for generating numerical sequence feature descriptors based on pssm profiles. Bioinformatics 33, 2756–2758 (2017).) to generate PSSMs. 
+
 
 Execute the following scripts to process the HIV dataset for classification.
 ```bash
