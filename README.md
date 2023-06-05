@@ -5,8 +5,11 @@ DeepAAI is an advanced deep learning-based tool for identifying antigen-antibody
 For making DeepAAI available at no cost to the community, we have set a **[web service](https://aai-test.github.io/)** predicting antigen-antibody interactions. 
 [https://aai-test.github.io/]( https://aai-test.github.io/)
 
-### Architecture   
-![](/doc/img/model_architecture.png)
+### Architecture
+<div align="center">
+<img src=/doc/img/model_architecture.png width=60% />
+</div>
+
 
 ### Installation
 ```bash
