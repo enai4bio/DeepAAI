@@ -7,7 +7,7 @@ For making DeepAAI available at no cost to the community, we have set a **[web s
 
 ### Architecture
 <div align="center">
-<img src=/doc/img/model_architecture.png width=60% />
+<img src=/doc/img/model_architecture.png width=90% />
 </div>
 
 
