@@ -4,7 +4,7 @@ DeepAAI is an advanced deep learning-based tool for identifying antigen-antibody
 
 **Cite this article**
 
-Zhang, J., Du, Y., Zhou, P. et al. Predicting unseen antibodies’ neutralizability via adaptive graph neural networks. _Nat Mach Intell_ 4, 964–976 (2022). 
+Zhang, J., Du, Y., Zhou, P. et al. Predicting unseen antibodies’ neutralizability via adaptive graph neural networks. _Nat Mach Intell_ **4**, 964–976 (2022). 
 
 ### Architecture
 <div align="center">
